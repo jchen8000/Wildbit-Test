@@ -9,7 +9,7 @@
        #pricing-new #mixedContent .contentBox {
             position: relative;
             float: left;
-            display: block;
+            display: none;
             height: 308px;
             width: 200px;
             border: solid 1px #ccc;
