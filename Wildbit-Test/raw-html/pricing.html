@@ -80,43 +80,79 @@
 
             <div id="mixedContent">
                 <div class="contentBox">
-                    <img src="../images/ajaxDemo/mrPip.jpg" /><br />
-
-                    <p><a href="aaa.com">slkfjdlfksdf</a>My father's family name being Pirrip, and my Christian name Philip, my infant tongue could make of both names nothing longer or more explicit than Pip. So, I called myself Pip, and came to be called Pip. </p>
+					<div class="plan plan-personal plan--shadowed">
+						<h2 class="plan-name"><span class="bronze">Bronze</span></h2>
+						<p  class="plan-price"><strong>$15</strong>/month</p>
+						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Bronze" class="square-button t-grey">Sign up</a></div>
+						<ul class="plan-includes">
+							<li><strong>3 GB</strong> of storage</li>
+							<li><strong>10</strong> repositories</li>
+							<li><strong>5</strong> users</li>
+							<li><strong>3</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						</ul>
+					</div>
+					<div class="plans-message centered">
+						<p>Includes all standard features.</p>
+					</div>
                 </div>
 
                 <div class="contentBox">
-                    <img src="../images/ajaxDemo/blacksmith.jpg" /><br />
-                    <p>I give Pirrip as my father's family name, on the authority of his tombstone and my sister - Mrs Joe Gargery, who married the blacksmith.</p>
+					<div class="plan plan-personal">
+						<h2 class="plan-name"><span class="silver">Silver</span></h2>
+						<p  class="plan-price"><strong>$25</strong>/month</p>
+						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Silver" class="square-button t-grey">Sign up</a></div>
+						<ul class="plan-includes">
+							<li><strong>6 GB</strong> of storage</li>
+							<li><strong>25</strong> repositories</li>
+							<li><strong>20</strong> users</li>
+							<li><strong>5</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						</ul>
+					</div>
                 </div>
 
                 <div class="contentBox">
-                    <img src="../images/ajaxDemo/tombstone.jpg" /><br />
-                    <p>As I never saw my father or my mother, and never saw any likeness of either of them (for their days were long before the days of photographs), my first fancies regarding what they were like, were unreasonably derived from their tombstones.</p>
+                    <div class="plan">
+						<h2 class="plan-name"><span class="gold">Gold</span></h2>
+						<p  class="plan-price"><strong>$50</strong>/month</p>
+						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Gold" class="square-button t-purple">Sign up</a></div>
+						<ul class="plan-includes">
+							<li><strong>12 GB</strong> of storage</li>
+							<li><strong>50</strong> repositories</li>
+							<li><strong>40</strong> users</li>
+							<li><strong>10</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						</ul>
+					</div>
                 </div>
 
                 <div class="contentBox">
-                    <img src="../images/ajaxDemo/victorianMan.jpg" /><br />
-                    <p>The shape of the letters on my father's, gave me an odd idea that he was a square, stout, dark man, with curly black hair.</p>
+					<div class="plan plan--shadowed">
+						<h2 class="plan-name"><span class="platinum">Platinum</span></h2>
+						<p  class="plan-price"><strong>$100</strong>/month</p>
+						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Platinum" class="square-button t-purple">Sign up</a></div>
+						<ul class="plan-includes">
+							<li><strong>24 GB</strong> of storage</li>
+							<li><strong>120</strong> repositories</li>
+							<li><strong>100</strong> users</li>
+							<li><strong>20</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						</ul>
+					</div>
                 </div>
 
                 <div class="contentBox">
-                    <img src="../images/ajaxDemo/victorianLady.jpg" /><br />
-                    <p>From the character and turn of the inscription, 'Also Georgiana Wife of the Above,' I drew a childish conclusion that my mother was freckled and sickly.</p>
+					<div class="plan plan--shadowed">
+						<h2 class="plan-name"><span class="diamond"><i></i>Diamond</span></h2>
+						<p  class="plan-price"><strong>$200</strong>/month</p>
+						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Diamond" class="square-button t-purple">Sign up</a></div>
+						<ul class="plan-includes">
+							<li><strong>60 GB</strong> of storage</li>
+							<li><strong>300</strong> repositories</li>
+							<li><strong>200</strong> users</li>
+							<li><strong>40</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						</ul>
+						<p class="link-custom-plans"><a href="#faq">Need more?</a></p>
+					</div>
                 </div>
 
-                <div class="contentBox">
-                    <p>To five little stone lozenges, each about a foot and a half long which were arranged in a neat row beside their grave, and were sacred to the memory of five little brothers of mine - who gave up trying to get a living, exceedingly early in that universal struggle - I am indebted for a belief I religiously entertained that they had all been born on their backs with their hands in their trousers' pockets, and had never taken them out in this state of existence.</p>
-                </div>
-
-                <div class="contentBox">
-                    <img src="../images/ajaxDemo/cabin.jpg" /><br />
-                    <p>Ours was the marsh country, down by the river, within, as the river wound, twenty miles of the sea.</p>
-                </div>
-
-                <div class="contentBox">
-                    <p>My first most vivid and broad impression of the identity of things, seems to me to have been gained on a memorable raw afternoon towards evening.</p>
-                </div>
             </div>
 
 
@@ -365,10 +401,9 @@
 	                });
 
 	                $('.contentBox').hover(function () {
-	                    $(this).stop().animate({ width: '280px' }, 500);
+	                    //$(this).stop().animate({ transform: scale(1.2,1.2) }, 400);
 	                }, function () {
-	                    $(this).stop().animate({ width: '200px' }, 500);
-
+	                    //$(this).stop().animate({ width: '200px' }, 500);
 	                });
 
 
