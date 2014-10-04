@@ -10,10 +10,122 @@
 	<meta name="author"      content="Wildbit, LLC">
 	<meta name="viewport"    content="width=1000">
 
+	<link rel="shortcut icon" href="demos/images/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="demos/images/apple-touch-icon.png">
+
+	<!-- jQuery (required) -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+
+	<!-- Syntax highlighting -->
+	<link rel="stylesheet" href="demos/prettify/prettify.css" media="screen">
+	<script src="demos/prettify/prettify.js"></script>
+
+	<!-- Anything Slider optional plugins -->
+	<script src="js/jquery.easing.1.2.js"></script>
+	<!-- http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js -->
+	<script src="js/swfobject.js"></script>
+
+   
+    <!-- AnythingSlider -->
+	<link rel="stylesheet" href="css/anythingslider.css">
+	<script src="js/jquery.anythingslider.js"></script>
+
+	<!-- AnythingSlider video extension; optional, but needed to control video pause/play -->
+	<script src="js/jquery.anythingslider.video.js"></script>
+
 	<link rel="stylesheet" href="stylesheets/global.css" media="all">
+
+	<!-- Ideally, add the stylesheet(s) you are going to use here,
+	 otherwise they are loaded and appended to the <head> automatically and will over-ride the IE stylesheet below -->
+	<link rel="stylesheet" href="css/theme-metallic.css">
+	<link rel="stylesheet" href="css/theme-minimalist-round.css">
+	<link rel="stylesheet" href="css/theme-minimalist-square.css">
+	<link rel="stylesheet" href="css/theme-construction.css">
+	<link rel="stylesheet" href="css/theme-cs-portfolio.css">
+
 
 	<script src="javascripts/modernizr.js"></script>
 	
+	<script>
+	    // Demo functions
+	    // **************
+	    $(function () {
+
+	        prettyPrint();
+
+	        // External Link with callback function
+	        $("#slide-jump").click(function () {
+	            $('#slider2').anythingSlider(4, function (slider) { /* alert('Now on page ' + slider.currentPage); */ });
+	            return false;
+	        });
+
+	        // External Link
+	        $("a.muppet").click(function () {
+	            $('#slider1').anythingSlider(5);
+	            $(document).scrollTop(0); // make the page scroll to the top so you can watch the video
+	            return false;
+	        });
+
+	        // Report Events to console & features list
+	        $('#slider1, #slider2').bind('before_initialize initialized swf_completed slideshow_start slideshow_stop slideshow_paused slideshow_unpaused slide_init slide_begin slide_complete', function (e, slider) {
+	            // show object ID + event (e.g. "slider1: slide_begin")
+	            var txt = slider.$el[0].id + ': ' + e.type + ', now on panel #' + slider.currentPage;
+	            $('#status').text(txt);
+	            if (window.console && window.console.firebug) { console.debug(txt); } // added window.console.firebug to make this work in Opera
+	        });
+
+	        // Theme Selector (This is really for demo purposes only)
+	        var themes = ['minimalist-round', 'minimalist-square', 'metallic', 'construction', 'cs-portfolio'];
+	        $('#currentTheme').change(function () {
+	            var theme = $(this).val();
+	            $('#slider1').closest('div.anythingSlider')
+					.removeClass($.map(themes, function (t) { return 'anythingSlider-' + t; }).join(' '))
+					.addClass('anythingSlider-' + theme);
+	            $('#slider1').anythingSlider(); // update slider - needed to fix navigation tabs
+	        });
+
+	        // Add a slide
+	        var imageNumber = 1;
+	        $('button.add').click(function () {
+	            $('#slider1')
+					.append('<li><img src="demos/images/slide-tele-' + (++imageNumber % 2 + 1) + '.jpg" alt="" /></li>')
+					.anythingSlider(); // update the slider
+	        });
+	        $('button.remove').click(function () {
+	            $('#slider1 > li:not(.cloned):last').remove();
+	            $('#slider1').anythingSlider(); // update the slider
+	        });
+
+	    });
+
+	</script>
+
+	<script>
+	    // Set up Sliders
+	    // **************
+	    $(function () {
+
+	        $('#slider2').anythingSlider({
+	            mode: 'f',   // fade mode - new in v1.8!
+	            resizeContents: false, // If true, solitary images/objects in the panel will expand to fit the viewport
+	            navigationSize: 3,     // Set this to the maximum number of visible navigation tabs; false to disable
+	            buildStartStop: false,
+	            navigationFormatter: function (index, panel) { // Format navigation labels with text
+	                return ['For Freelance and Individual', 'For Business and Enterprise'][index - 1];
+	            },
+	            onSlideBegin: function (e, slider) {
+	                // keep the current navigation tab in view
+	                slider.navWindow(slider.targetPage);
+	            }
+	        });
+
+	        // tooltips for first demo
+	        $.jatt();
+
+	    });
+	</script>
+
 </head>
 
 <body>
@@ -67,114 +179,119 @@
 
 			<hgroup class="page-title">
 				<h1>Free for the first two weeks</h1>
-				<h2>No Contracts. Upgrade or downgrade any time.</h2>
+				<h2>No Contracts. Upgrade or downgrade any time. </h2>
 			</hgroup>
 
-			<section class="plans-lineup">
+            <section class="plans-lineup">
 
-				<h1 class="plans-group plans-personal h-rule t-grey">
-					<span class="hr"></span>
-					<span class="hr-name">Built for freelancers and start ups</span>
-					<span class="hr"></span>
-				</h1>
+            <i class="i-leaf"></i>
 
-				<div class="plans-personal-wrap">
+			<!-- AnythingSlider #2 -->
+			<ul id="slider2">
 
-					<div class="plan plan-personal plan--shadowed">
-						<h2 class="plan-name"><span class="bronze">Bronze</span></h2>
-						<p  class="plan-price"><strong>$15</strong>/month</p>
-						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Bronze" class="square-button t-grey">Sign up</a></div>
-						<ul class="plan-includes">
-							<li><strong>3 GB</strong> of storage</li>
-							<li><strong>10</strong> repositories</li>
-							<li><strong>5</strong> users</li>
-							<li><strong>3</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
-						</ul>
-					</div>
+                <li class="panelPersonal">
 
-					<div class="plan plan-personal">
-						<h2 class="plan-name"><span class="silver">Silver</span></h2>
-						<p  class="plan-price"><strong>$25</strong>/month</p>
-						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Silver" class="square-button t-grey">Sign up</a></div>
-						<ul class="plan-includes">
-							<li><strong>6 GB</strong> of storage</li>
-							<li><strong>25</strong> repositories</li>
-							<li><strong>20</strong> users</li>
-							<li><strong>5</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
-						</ul>
-					</div>
+				    <div class="plans-personal-wrap">
 
-					<div class="plans-message centered">
-						<p>Includes all standard features.</p>
-					</div>
+					    <div class="plan plan-personal plan--shadowed">
+						    <h2 class="plan-name"><span class="bronze">Bronze</span></h2>
+						    <p  class="plan-price"><strong>$15</strong>/month</p>
+						    <div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Bronze" class="square-button t-grey">Sign up</a></div>
+						    <ul class="plan-includes">
+							    <li><strong>3 GB</strong> of storage</li>
+							    <li><strong>10</strong> repositories</li>
+							    <li><strong>5</strong> users</li>
+							    <li><strong>3</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						    </ul>
+					    </div>
 
-				</div>
+					    <div class="plan plan-personal">
+						    <h2 class="plan-name"><span class="silver">Silver</span></h2>
+						    <p  class="plan-price"><strong>$25</strong>/month</p>
+						    <div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Silver" class="square-button t-grey">Sign up</a></div>
+						    <ul class="plan-includes">
+							    <li><strong>6 GB</strong> of storage</li>
+							    <li><strong>25</strong> repositories</li>
+							    <li><strong>20</strong> users</li>
+							    <li><strong>5</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						    </ul>
+					    </div>
 
-				<h1 class="plans-group plans-business h-rule t-purple">
-					<span class="hr"></span>
-					<span class="hr-name">Built for businesses and enterprise</span>
-					<span class="hr"></span>
-				</h1>
+					    <div class="plans-message centered">
+						    <p>Includes all standard features.</p>
+					    </div>
 
-				<div class="plans-business-wrap">
+                        
 
-					<div class="plan">
-						<h2 class="plan-name"><span class="gold">Gold</span></h2>
-						<p  class="plan-price"><strong>$50</strong>/month</p>
-						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Gold" class="square-button t-purple">Sign up</a></div>
-						<ul class="plan-includes">
-							<li><strong>12 GB</strong> of storage</li>
-							<li><strong>50</strong> repositories</li>
-							<li><strong>40</strong> users</li>
-							<li><strong>10</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
-						</ul>
-					</div>
+				    </div>
+                </li>
 
-					<div class="plan plan--shadowed">
-						<h2 class="plan-name"><span class="platinum">Platinum</span></h2>
-						<p  class="plan-price"><strong>$100</strong>/month</p>
-						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Platinum" class="square-button t-purple">Sign up</a></div>
-						<ul class="plan-includes">
-							<li><strong>24 GB</strong> of storage</li>
-							<li><strong>120</strong> repositories</li>
-							<li><strong>100</strong> users</li>
-							<li><strong>20</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
-						</ul>
-					</div>
+                <li class="panelBusiness">
 
-					<div class="plan plan--shadowed">
-						<h2 class="plan-name"><span class="diamond"><i></i>Diamond</span></h2>
-						<p  class="plan-price"><strong>$200</strong>/month</p>
-						<div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Diamond" class="square-button t-purple">Sign up</a></div>
-						<ul class="plan-includes">
-							<li><strong>60 GB</strong> of storage</li>
-							<li><strong>300</strong> repositories</li>
-							<li><strong>200</strong> users</li>
-							<li><strong>40</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
-						</ul>
-						<p class="link-custom-plans"><a href="#faq">Need more?</a></p>
-					</div>
+				    <div class="plans-business-wrap">
 
-					<div class="plans-message">
-						<p>Includes all standard features, plus:</p>
-						<ul class="plan-extra">
-							<li><strong>Security Tools:</strong> IP restrictions, strong password enforcing</li>
-							<li><strong>Priority Support:</strong>  Get your questions answered first</li>
-							<li><strong>Scalable Deployments:</strong> Deploy to multiple servers simultaneously</li>
-							<li><strong>Custom Backups:</strong> Nightly backups to your own AWS S3 account</li>
-							<li><strong>Peace of mind:</strong> Backed by a <a href="sla.html">100% Uptime SLA</a></li>
-						</ul>
-					</div>
+					    <div class="plan">
+						    <h2 class="plan-name"><span class="gold">Gold</span></h2>
+						    <p  class="plan-price"><strong>$50</strong>/month</p>
+						    <div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Gold" class="square-button t-purple">Sign up</a></div>
+						    <ul class="plan-includes">
+							    <li><strong>12 GB</strong> of storage</li>
+							    <li><strong>50</strong> repositories</li>
+							    <li><strong>40</strong> users</li>
+							    <li><strong>10</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						    </ul>
+					    </div>
 
-				</div>
+					    <div class="plan plan--shadowed">
+						    <h2 class="plan-name"><span class="platinum">Platinum</span></h2>
+						    <p  class="plan-price"><strong>$100</strong>/month</p>
+						    <div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Platinum" class="square-button t-purple">Sign up</a></div>
+						    <ul class="plan-includes">
+							    <li><strong>24 GB</strong> of storage</li>
+							    <li><strong>120</strong> repositories</li>
+							    <li><strong>100</strong> users</li>
+							    <li><strong>20</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						    </ul>
+					    </div>
+
+					    <div class="plan plan--shadowed">
+						    <h2 class="plan-name"><span class="diamond"><i></i>Diamond</span></h2>
+						    <p  class="plan-price"><strong>$200</strong>/month</p>
+						    <div class="plan-signup"><a href="https://signup.beanstalkapp.com/account/new?plan=Diamond" class="square-button t-purple">Sign up</a></div>
+						    <ul class="plan-includes">
+							    <li><strong>60 GB</strong> of storage</li>
+							    <li><strong>300</strong> repositories</li>
+							    <li><strong>200</strong> users</li>
+							    <li><strong>40</strong> <abbr title="Deployment servers per repository">servers<span class="slash">/</span>repository</abbr></li>
+						    </ul>
+						    <p class="link-custom-plans"><a href="#faq">Need more?</a></p>
+					    </div>
+
+					    <div class="plans-message">
+						    <p>Includes all standard features, plus:</p>
+						    <ul class="plan-extra">
+							    <li><strong>Security Tools:</strong> IP restrictions, strong password enforcing</li>
+							    <li><strong>Priority Support:</strong>  Get your questions answered first</li>
+							    <li><strong>Scalable Deployments:</strong> Deploy to multiple servers simultaneously</li>
+							    <li><strong>Custom Backups:</strong> Nightly backups to your own AWS S3 account</li>
+							    <li><strong>Peace of mind:</strong> Backed by a <a href="sla.html">100% Uptime SLA</a></li>
+						    </ul>
+					    </div>
+
+				    </div>
+
+                </li>
+
+			</ul>
+			<!-- END AnythingSlider #2 -->
+
 
 				<div class="plans-tryout">
 					<p>Are you an independent? We have a <a href="https://signup.beanstalkapp.com/account/new">Free account</a> for 1 user and 1 repository, with 100MB of storage.<br />No credit card required.</p>
 				</div>
 
-				<i class="i-leaf"></i>
-
 			</section>
+
 
 			<div class="features-list">
 

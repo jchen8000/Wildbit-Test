@@ -1161,7 +1161,7 @@ footer #help small,
 }
 #pricing-new .plans-lineup {
   position: relative;
-  margin: 50px -20px;
+  margin: 50px 20px;
   padding-top: 3.5em;
 }
 #pricing-new .plans-lineup:before, #pricing-new .plans-lineup:after {
@@ -1174,7 +1174,7 @@ footer #help small,
 #pricing-new .plans-lineup i.i-leaf {
   position: absolute;
   top: 155px;
-  left: -48px;
+  left: 0px;
 }
 #pricing-new .plans-lineup a {
   border-width: 0 0 1px;
@@ -1281,6 +1281,7 @@ footer #help small,
   background-color: #F4F4F4;
   background-color: rgba(233, 233, 233, 0.5);
   color: #8A8A8A;
+  margin-top: 10px;
 }
 #pricing-new .plans-personal-wrap a {
   border-color: #c9c9c9;
@@ -1312,7 +1313,7 @@ footer #help small,
   position: relative;
   float: right;
   width: 588px;
-  margin-top: -8px;
+  margin-top: 10px;
   padding-top: 8px;
   padding-bottom: 8px;
   -webkit-border-radius: 5px;
@@ -1377,12 +1378,13 @@ footer #help small,
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  float: left;
   width: 390px;
   padding: 40px 40px 0;
   color: #888;
   text-align: center;
   line-height: 1.4;
+  margin-left: auto;
+  margin-right: auto;
 }
 #pricing-new .plans-tryout p {
   margin: 0;
@@ -1559,3 +1561,17 @@ footer #help small,
   width: 60px;
   background-position: -572px 0;
 }
+
+
+/* Set slider2 panel sizes, Main & FX demo pages */
+#slider2 .panelPersonal { width: 392px; height: 180px; }
+#slider2 .panelBusiness { width: 588px; height: 517px; }
+
+
+#pricing-new #slider2 i.i-leaf {
+  position: absolute;
+  top: 22px;
+  left: 0px;
+}
+
+
