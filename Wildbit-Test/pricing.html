@@ -112,7 +112,7 @@
 	            navigationSize: 3,     // Set this to the maximum number of visible navigation tabs; false to disable
 	            buildStartStop: false,
 	            navigationFormatter: function (index, panel) { // Format navigation labels with text
-	                return ['For Freelance and Individual', 'For Business and Enterprise'][index - 1];
+	                return ['Independent','Freelance', 'Business'][index - 1];
 	            },
 	            onSlideBegin: function (e, slider) {
 	                // keep the current navigation tab in view
@@ -122,7 +122,7 @@
 	            onSlideComplete: function (slider) {
 	            },
 
-	            onSliderResize: function(e, slider) {
+	            onSliderResize: function (e, slider) {
 	            }
 
 	        });
@@ -190,15 +190,43 @@
 			</hgroup>
 
             <section class="plans-lineup">
-            <i class="i-leaf"></i> 
 
 			<!-- AnythingSlider #2 -->
-			<ul id="slider2">
+			<ul id="slider2" style="overflow:visible;">
+
+
+                <li class="panelIndependent">
+
+				    <div class="plans-personal-wrap" >
+
+                        <i class="i-leaf"></i> 
+				        <h1 class="plans-group plans-personal h-rule t-grey">
+					        <span class="hr-name">Independent Plan</span>
+				        </h1>
+
+				        <div class="plans-tryout">
+					        <p>Are you an independent? We have a <a href="https://signup.beanstalkapp.com/account/new">Free account</a> for 1 user and 1 repository, with 100MB of storage.<br />No credit card required.</p>
+				        </div>
+
+
+					    <div class="plans-message centered">
+						    <p>Includes all standard features.</p>
+					    </div>
+
+                        
+
+				    </div>
+                </li>
+
 
                 <li class="panelPersonal">
 
-
 				    <div class="plans-personal-wrap" >
+
+                        <i class="i-leaf"></i> 
+				        <h1 class="plans-group plans-personal h-rule t-grey">
+					        <span class="hr-name">Freelancers and Start ups Plans</span>
+				        </h1>
 
 					    <div class="plan plan-personal plan--shadowed">
 						    <h2 class="plan-name"><span class="bronze">Bronze</span></h2>
@@ -236,6 +264,11 @@
                 <li class="panelBusiness">
 
 				    <div class="plans-business-wrap">
+
+                        <i class="i-leaf"></i> 
+				        <h1 class="plans-group plans-business h-rule t-purple">
+					        <span class="hr-name">Businesses and Enterprise Plans</span>
+				        </h1>
 
 					    <div class="plan">
 						    <h2 class="plan-name"><span class="gold">Gold</span></h2>
@@ -293,9 +326,6 @@
 			<!-- END AnythingSlider #2 -->
 
 
-				<div class="plans-tryout">
-					<p>Are you an independent? We have a <a href="https://signup.beanstalkapp.com/account/new">Free account</a> for 1 user and 1 repository, with 100MB of storage.<br />No credit card required.</p>
-				</div>
 
 			</section>
 
