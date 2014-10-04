@@ -1172,12 +1172,13 @@ footer #help small,
   clear: both;
 }
 #pricing-new .plans-lineup i.i-leaf {
-  position: absolute;
-  top: 155px;
+  position:absolute;
+  top: 80px;
   left: 0px;
+  margin-left: -20px;
 }
 #pricing-new .plans-lineup a {
-  border-width: 0 0 1px;
+  border-width: 0 0 0px;
   border-style: solid;
   color: inherit;
   text-decoration: none;
@@ -1567,10 +1568,9 @@ footer #help small,
 #slider2 .panelPersonal { width: 392px; height: 180px; }
 #slider2 .panelBusiness { width: 588px; height: 517px; }
 
-
-#pricing-new #slider2 i.i-leaf {
-  position: absolute;
-  top: 22px;
+#pricing-new .plan i.i-leaf {
+  position:absolute;
+  top: 0px;
   left: 0px;
 }
 

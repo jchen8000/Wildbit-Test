@@ -117,7 +117,14 @@
 	            onSlideBegin: function (e, slider) {
 	                // keep the current navigation tab in view
 	                slider.navWindow(slider.targetPage);
+	            },
+
+	            onSlideComplete: function (slider) {
+	            },
+
+	            onSliderResize: function(e, slider) {
 	            }
+
 	        });
 
 	        // tooltips for first demo
@@ -183,15 +190,15 @@
 			</hgroup>
 
             <section class="plans-lineup">
-
-            <i class="i-leaf"></i>
+            <i class="i-leaf"></i> 
 
 			<!-- AnythingSlider #2 -->
 			<ul id="slider2">
 
                 <li class="panelPersonal">
 
-				    <div class="plans-personal-wrap">
+
+				    <div class="plans-personal-wrap" >
 
 					    <div class="plan plan-personal plan--shadowed">
 						    <h2 class="plan-name"><span class="bronze">Bronze</span></h2>
