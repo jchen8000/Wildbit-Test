@@ -1175,15 +1175,17 @@ footer #help small,
 }
 #pricing-new .plans-lineup i.i-leaf {
   position:absolute;
-  top: 20px;
+  top: 0px;
   left: 0px;
-  margin-left: -30px;
+  margin-left: -48px;
+  margin-top: -3px;
 }
 #pricing-new .plans-lineup a {
   border-width: 0 0 0px;
   border-style: solid;
-  color: inherit;
+  color: darkblue;
   text-decoration: none;
+  font-weight:bolder;
 }
 #pricing-new .plans-lineup a:hover {
   color: #000;
@@ -1571,14 +1573,10 @@ footer #help small,
 
 
 /* Set slider2 panel sizes, Main & FX demo pages */
-#slider2 .panelIndependent { width: 392px; height: 180px; overflow:visible;}
-#slider2 .panelPersonal { width: 392px; height: 180px; }
-#slider2 .panelBusiness { width: 588px; height: 517px; }
+#slider2 .panelIndependent { width: 360px; height: 180px; overflow:visible;}
+#slider2 .panelPersonal { width: 392px; height: 180px; overflow:visible;}
+#slider2 .panelBusiness { width: 588px; height: 517px; overflow:visible;}
 
-#pricing-new .plan i.i-leaf {
-  position:absolute;
-  top: 0px;
-  left: 0px;
-}
+
 
 

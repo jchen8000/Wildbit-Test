@@ -99,6 +99,7 @@
 
 	    });
 
+
 	</script>
 
 	<script>
@@ -122,13 +123,23 @@
 	            onSlideComplete: function (slider) {
 	            },
 
+	            onInitialized: function (e, slider) {
+	                $("#slider2").parent().css({ "overflow": "visible" });
+	            },
+
 	            onSliderResize: function (e, slider) {
 	            }
+
+                
 
 	        });
 
 	        // tooltips for first demo
 	        $.jatt();
+
+	        $(document).ready(function () {
+	            $("#slider2").parent().css({ "overflow": "visible" });
+	        });
 
 	    });
 	</script>
@@ -189,23 +200,23 @@
 				<h2>No Contracts. Upgrade or downgrade any time. </h2>
 			</hgroup>
 
-            <section class="plans-lineup">
+            <section class="plans-lineup" >
 
 			<!-- AnythingSlider #2 -->
-			<ul id="slider2" style="overflow:visible;">
+			<ul id="slider2" >
 
 
                 <li class="panelIndependent">
 
-				    <div class="plans-personal-wrap" >
+				    <div class="plans-personal-wrap" style="width: 360px;" >
 
                         <i class="i-leaf"></i> 
 				        <h1 class="plans-group plans-personal h-rule t-grey">
 					        <span class="hr-name">Independent Plan</span>
 				        </h1>
 
-				        <div class="plans-tryout">
-					        <p>Are you an independent? We have a <a href="https://signup.beanstalkapp.com/account/new">Free account</a> for 1 user and 1 repository, with 100MB of storage.<br />No credit card required.</p>
+				        <div class="plans-tryout" style="width: 360px;">
+					        <p>Are you an independent? We have a <b><a href="https://signup.beanstalkapp.com/account/new">FREE Account</a></b> for 1 user and 1 repository, with 100MB of storage.<br />No credit card required.</p>
 				        </div>
 
 
